@@ -2,6 +2,7 @@
 import pygame
 import random
 from settings import *
+from Sprites import *
 
 class Game(object):
     def __init__(self):
@@ -11,7 +12,7 @@ class Game(object):
         # set the display size to our game constants and set to variable
         self.screen = pygame.display.set_mode((width,height))
         # set window title (name that opens on top bar of window)
-        pygame.display.set_caption("Pygame Template")
+        pygame.display.set_caption(title)
         self.clock = pygame.time.Clock()
         self.running = True
 
@@ -19,6 +20,7 @@ class Game(object):
         # start a new game/ replay
         self.all_sprites = pygame.sprite.Group()
         self.run()
+        self.player = Player(self, 0,0)
         
     
     def run(self):
@@ -40,11 +42,16 @@ class Game(object):
                     self.playing = False
                 self.running = False
             
-        pass
+    def draw_grid(self):
+        for x in range(0,width, tilesize):
+            pygame.draw.line(self.screen, lightgrey,(x,0), (x,height))
+        for y in range(0,height, tilesize):
+            pygame.draw.line(self.screen, lightgrey, (0,y), (width,y)) 
     
     def draw(self):
         # game loop draw
-        self.screen.fill(black)
+        self.screen.fill(bgcolor)
+        self.draw_grid()
         self.all_sprites.draw(self.screen)
         pygame.display.flip()
 
@@ -58,6 +65,7 @@ class Game(object):
 
 game = Game()
 game.show_start_screen()
+
 while game.running:
     game.new()
     game.show_go_screen()
