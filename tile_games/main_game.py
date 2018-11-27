@@ -2,7 +2,7 @@
 import pygame
 import random
 from settings import *
-from Sprites import *
+from Characters import *
 
 class Game(object):
     def __init__(self):
