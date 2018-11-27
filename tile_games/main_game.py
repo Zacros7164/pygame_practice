@@ -18,15 +18,22 @@ class Game(object):
 
     def new(self):
         # start a new game/ replay
+        # print "new running"
         self.all_sprites = pygame.sprite.Group()
+        # print self.all_sprites
         self.run()
+        # print "running"
         self.player = Player(self, 0,0)
+        self.all_sprites.add(self.player)
+        print self.all_sprites
         
     
     def run(self):
         # game loop
+        # print "called run"
         self.playing = True
         while self.playing:
+            # print"while loop running"
             self.clock.tick(fps)
             self.events()
             self.update()

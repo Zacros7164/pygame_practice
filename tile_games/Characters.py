@@ -2,10 +2,13 @@ import pygame
 from settings import *
 from pygame.sprite import Sprite
 
+
 class Player(Sprite):
     def __init__(self, game, x, y):
-        self.groups = game.all_sprites
-        super.__init__(self, self.groups)
+        # print "init running"
+        # self.groups = game.all_sprites
+        super(Player, self).__init__(self)
+        # print "super ran"
         self.game = game
         self.image = pygame.Surface((tilesize,tilesize))
         self.image.fill(yellow)
