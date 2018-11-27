@@ -1,10 +1,20 @@
 # Import needed modules
 import pygame
 import random
+
+
 # set game constant variables
 width = 360
 height = 480
 fps = 30
+
+# set some color variables to use later (or just set background img variables)
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+
 # you HAVE to run pygame.init to tell program to start pygame
 pygame.init()
 pygame.mixer.init()
@@ -13,12 +23,7 @@ screen = pygame.display.set_mode((width,height))
 # set window title (name that opens on top bar of window)
 pygame.display.set_caption("Pygame Template")
 clock = pygame.time.Clock()
-# set some color variables to use later (or just set background img variables)
-black = (0, 0, 0)
-white = (255, 255, 255)
-red = (255, 0, 0)
-green = (0, 255, 0)
-blue = (0, 0, 255)
+
 
 
 # set bool to control game loop
